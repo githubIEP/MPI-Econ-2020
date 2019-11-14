@@ -1,0 +1,10 @@
+indicator,type,year,cost
+Homicide,direct,2008,1285146
+Homicide,indirect,2008,8442000
+Rape,direct,2008,41252
+Robbery,direct,2008,21373
+Assault,direct,2008,19472
+Rape,indirect,2008,199642
+Robbery,indirect,2008,22575
+Assault,indirect,2008,95023
+firearm,indirect,2008,1500

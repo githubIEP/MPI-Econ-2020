@@ -1,0 +1,39 @@
+,state,code,region,inegi.code,inegi.leading,state.long,state.caps,state.caps.sa
+1,Aguascalientes,AGU,Central,1,1,Aguascalientes,AGUASCALIENTES,AGUASCALIENTES
+2,Baja California,BCN,North,2,2,Baja California,BAJA CALIFORNIA,BAJA CALIFORNIA
+3,Baja California Sur,BCS,North,3,3,Baja California Sur,BAJA CALIFORNIA SUR,BAJA CALIFORNIA SUR
+4,Campeche,CAM,South,4,4,Campeche,CAMPECHE,CAMPECHE
+5,Coahuila,COA,North,5,5,Coahuila de Zaragoza,COAHUILA,COAHUILA
+6,Colima,COL,West,6,6,Colima,COLIMA,COLIMA
+7,Chiapas,CHP,South,7,7,Chiapas,CHIAPAS,CHIAPAS
+8,Chihuahua,CHH,North,8,8,Chihuahua,CHIHUAHUA,CHIHUAHUA
+9,Distrito Federal,DIF,Central,9,9,Distrito Federal,DISTRITO FEDERAL,DISTRITO FEDERAL
+10,Durango,DUR,North,10,10,Durango,DURANGO,DURANGO
+11,Guanajuato,GUA,Central,11,11,Guanajuato,GUANAJUATO,GUANAJUATO
+12,Guerrero,GRO,South,12,12,Guerrero,GUERRERO,GUERRERO
+13,Hidalgo,HID,East,13,13,Hidalgo,HIDALGO,HIDALGO
+14,Jalisco,JAL,West,14,14,Jalisco,JALISCO,JALISCO
+15,México,MEX,Central,15,15,México,MÉXICO,MEXICO
+16,Michoacán,MIC,West,16,16,Michoacán de Ocampo,MICHOACÁN,MICHOACAN
+17,Morelos,MOR,Central,17,17,Morelos,MORELOS,MORELOS
+18,Nayarit,NAY,West,18,18,Nayarit,NAYARIT,NAYARIT
+19,Nuevo León,NLE,North,19,19,Nuevo León,NUEVO LEÓN,NUEVO LEON
+20,Oaxaca,OAX,South,20,20,Oaxaca,OAXACA,OAXACA
+21,Puebla,PUE,East,21,21,Puebla,PUEBLA,PUEBLA
+22,Querétaro,QUE,Central,22,22,Querétaro,QUERÉTARO,QUERETARO
+23,Quintana Roo,ROO,South,23,23,Quintana Roo,QUINTANA ROO,QUINTANA ROO
+24,San Luis Potosí,SLP,Central,24,24,San Luis Potosí,SAN LUIS POTOSÍ,SAN LUIS POTOSI
+25,Sinaloa,SIN,North,25,25,Sinaloa,SINALOA,SINALOA
+26,Sonora,SON,North,26,26,Sonora,SONORA,SONORA
+27,Tabasco,TAB,South,27,27,Tabasco,TABASCO,TABASCO
+28,Tamaulipas,TAM,North,28,28,Tamaulipas,TAMAULIPAS,TAMAULIPAS
+29,Tlaxcala,TLA,East,29,29,Tlaxcala,TLAXCALA,TLAXCALA
+30,Veracruz,VER,East,30,30,Veracruz de Ignacio de la Llave,VERACRUZ,VERACRUZ
+31,Yucatán,YUC,South,31,31,Yucatán,YUCATÁN,YUCATAN
+32,Zacatecas,ZAC,Central,32,32,Zacatecas,ZACATECAS,ZACATECAS
+33,National,National,National,NA,NA,National,National,National
+34,North,North,North,NA,NA,North,North,North
+35,South,South,South,NA,NA,South,South,South
+36,Central,Central,Central,NA,NA,Central,Central,Central
+37,East,East,East,NA,NA,East,East,East
+38,West,West,West,NA,NA,West,West,West
