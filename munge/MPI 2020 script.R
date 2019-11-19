@@ -446,7 +446,7 @@ incarceration[19,1] <- "Nuevo León"
 incarceration[22,1] <- "Querétaro"
 incarceration[24,1] <- "San Luis Potosí"
 incarceration[31,1] <-"Yucatán"
-
+"check
 
 incarceration <- left_join(incarceration, mex_names, by = "state")
 incarceration <-  incarceration %>%  select(-state)
