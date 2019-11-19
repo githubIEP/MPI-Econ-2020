@@ -158,7 +158,7 @@ unit_cost <- merge(years, unit_cost)
 unit_cost <- merge(gdpscale,unit_cost,by="year")
 unit_cost <- spread(unit_cost, indicator, cost)
 
-
+##check fear is not scaled with the us then uk
 for (i in 1:nrow(unit_cost)){
   unit_cost[i,c(4:13)] <- unit_cost[i,c(4:13)]* unit_cost[i,"us.scale"]
   unit_cost[i, "Fear of crime - indirect"] <- unit_cost[i, "Fear of crime - indirect"] * unit_cost[i,"uk.scale"]
@@ -208,7 +208,7 @@ unit_cost <- rbind(unit_cost, unit_cost_incar)
 #_________________________                   Justice            Defense        P&S                      _______________________________________________________________________________
 
 #2018 was calculated in the spreadsheet and then the spreadsheetis uploaded.
-
+getwd()
 Mex_gov_exp <- read_excel("Mexico governement expenditures.xlsx", 
                           sheet = "FASP")
 
@@ -298,6 +298,8 @@ govtexp[3:5] <-  round(govtexp[3:5], digits = 4)
 
 
 #_____________________________________ENVE CPI ADJUSTMENT_______________________________________________________________________________
+
+##updated every two years #update in 2020 MPI
 
 ENVE <- read_excel("data/data - old/ENVE - Losses due to insecurity.xlsx", sheet = "all") %>% subset(year>2010)
 ENVE[2:5] <- lapply(ENVE[2:5], function(x) {as.numeric(as.character(x))})
@@ -508,10 +510,48 @@ pos= c("AGU","BCN", "BCS" , "CAM", "CHH", "CHP", "COA", "COL", "DIF","DUR", "GUA
 mpidata2 <- mpidata[,c("code","year","value","subtype")]
 unit_cost2 = unit_cost
 unit_cost=unit_cost2
-unit_cost <- separate(unit_cost, "indicator", into = c("indicator","type"), sep = " - ")
+# unit_cost <- separate(unit_cost, "indicator", into = c("indicator","type"), sep = " - ")
+unit_cost$indicator <- tolower(unit_cost$indicator )
 
 
-mpidata2 <- mpidata2 %>% spread(subtype,value) %>% merge(unit_cost[,c(1,4:11)],by="year")
+unit_cost <- unit_cost %>% spread(indicator,cost) %>% subset(year>2014)
+mpidata2 <- mpidata2 %>% spread(subtype,value) %>% merge(unit_cost,by="year")
+
+# the multipliers are used to deduct govt costs
+
+mpi.cost <- mpidata2[mpidata2$code %in% pos,]
+
+mpidata2 <- mpi.cost
+for(i in 1:nrow(mpi.cost)){
+  #homicide
+  mpidata2[,"homicide.direct"] <-  mpidata2[,"homicide"]*mpidata2[,"homicide - direct"]*0.69
+  mpidata2[,"homicide.indirect"] <- mpidata2[,"homicide"]*mpidata2[,"homicide - indirect"]
+  # Assualt
+  mpidata2[,"assault.direct"] <- mpidata2[,"assault"]*mpidata2[,"assault - direct"]*0.45
+  mpidata2[,"assault.indirect"] <- mpidata2[,"assault"]*mpidata2[,"assault - indirect"]
+  # rape
+  mpidata2[,"rape.direct"] <- mpidata2[,"sexual.assault"]*mpidata2[,"rape - direct"]*0.36
+  mpidata2[,"rape.indirect"] <- mpidata2[,"sexual.assault"]*mpidata2[,"rape - indirect"]
+  # extortion
+  mpidata2[,"extortion.direct"] <- mpidata2[,"extortion"]*mpidata2[,"robbery - direct"]*0.15
+  mpidata2[,"extortion.indirect"] <- mpidata2[,"extortion"]*mpidata2[,"robbery - indirect"]
+  # robbery
+  mpidata2[,"robbery.direct"] <- mpidata2[,"robbery"]*mpidata2[,"robbery - direct"]*0.15
+  mpidata2[,"robbery.indirect"] <- mpidata2[,"robbery"]*mpidata2[,"robbery - indirect"]
+  # kidnapping
+  mpidata2[,"kidnapping.direct"] <- mpidata2[,"kidnapping.and.human.trafficking"]*mpidata2[,"assault - direct"]*0.45
+  mpidata2[,"kidnapping.indirect"] <- mpidata2[,"kidnapping.and.human.trafficking"]*mpidata2[,"assault - indirect"]
+}
+
+
+mpi.cost <- mpidata2[,c(1:2,20:31)]
+
+mpi.cost <- gather(mpi.cost,subtype,value,-c(code,year))
+mpi.cost <- mpi.cost %>% 
+  separate(subtype, c("subtype", "type"), "\\.")
+
+
+
 
 #---------------------------------------------------------------------------------------
 
